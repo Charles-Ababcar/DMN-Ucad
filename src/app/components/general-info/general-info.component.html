@@ -1,0 +1,214 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="col-sm-12 col-lg-6 col-xl-12 xl-50">
+        <div class="card">
+          <div class="calender-widget">
+            <div class="cal-img"></div>
+            <div class="cal-date">
+              <h5>25<br>APRIL</h5>
+            </div>
+            <div class="cal-desc text-center card-body">
+              <h6 class="f-w-600">DMN</h6>
+              <h6>Siège : </h6>
+              <h6>Téléphone : </h6>
+              <h6>E-mail : </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <a class="btn btn-pill btn-success btn-air-success" [routerLink]="['/general-info/new-cellule']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+        </div>                                                                                                
+        <div class="card-header">
+          <h5>CELLULES</h5> 
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Description</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let cellule of cellules;let index = index;" >
+                <tr>
+                  <td>{{ cellule.nom }}</td>
+                  <td>{{ cellule.description }}</td>
+                  <td><a class="btn btn-warning btn-xs" [routerLink]="['/general-info/edit-cellule',cellule.id]"><i class="fa fa-edit"></i></a></td>
+                  <td><button class="btn btn-danger btn-xs" (click)="deleteEntity(cellule.id)"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <a class="btn btn-pill btn-success btn-air-success" [routerLink]="['/general-info/new-xamxam']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+        </div>                                                                                                
+        <div class="card-header">
+          <h5>Xam Xam</h5> 
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Libelle</th>
+                  <th scope="col">Niveau xamxam</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let x of xamxams;let index = index;" >
+                <tr>
+                  <td>{{ x.libelle }}</td>
+                  <td>{{ x.niveauXamXam.libelle }}</td>
+                  <td><a class="btn btn-warning btn-xs" [routerLink]="['/general-info/edit-xamxam',x.id]"><i class="fa fa-edit"></i></a></td>
+                  <td><button class="btn btn-danger btn-xs" (click)="deleteXamxam(x.id)"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <a class="btn btn-pill btn-success btn-air-success" [routerLink]="['/general-info/new-xamxam']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+        </div>                                                                                                
+        <div class="card-header">
+          <h5>Niveau coranique</h5> 
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Libelle</th>
+                  <th scope="col">Niveau xamxam</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let x of xamxams;let index = index;" >
+                <tr>
+                  <td>{{ x.libelle }}</td>
+                  <td>{{ x.niveauXamXam.libelle }}</td>
+                  <td><a class="btn btn-warning btn-xs" [routerLink]="['/general-info/edit-xamxam',x.id]"><i class="fa fa-edit"></i></a></td>
+                  <td><button class="btn btn-danger btn-xs" (click)="deleteXamxam(x.id)"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <a class="btn btn-pill btn-success btn-air-success" [routerLink]="['/general-info/new-commission']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+        </div> 
+        <div class="card-header">
+          <h5>COMMISSIONS</h5>
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Description</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let commission of commissions;let index = index;" >
+                <tr>
+                  <td>{{ commission.nom }}</td>
+                  <td>{{ commission.description }}</td>
+                  <td><a class="btn btn-warning btn-xs"  [routerLink]="['/general-info/edit-commission',commission.id]"><i class="fa fa-edit"></i></a></td>
+                  <td><button class="btn btn-danger btn-xs" (click)="deleteEntity(commission.id)"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <a class="btn btn-pill btn-success btn-air-success" [routerLink]="['/general-info/new-departement']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+        </div> 
+        <div class="card-header">
+          <h5>DEPARTEMENTS</h5>
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Faculte</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let dep of departements;let index = index;" >
+                <tr>
+                  <td>{{ dep.nom }}</td>
+                  <td>{{ dep.faculte.nom }}</td>
+                  <td><a class="btn btn-warning btn-xs"  [routerLink]="['/general-info/edit-departement',dep.id]"><i class="fa fa-edit"></i></a></td>
+                  <td><button class="btn btn-danger btn-xs" (click)="deleteDepartement(dep.id)"><i class="fa fa-trash-o"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-xl-12 xl-100">
+      <div class="card">
+        <div class="col-xl-1 xl-100">
+          <p></p>
+          <button class="btn btn-pill btn-success btn-air-success" ><i class="fa fa-plus-circle" style="font-size: x-large;"></i></button>     
+        </div> 
+        <div class="card-header">
+          <h5>DOCUMENTS</h5>
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Simply dummy text of the printing</td>
+                  <td><button class="btn btn-secondary"><i class="fa fa-eye"></i></button></td>
+                  <td><button class="btn btn-light"><i class="fa fa-download"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+</div>

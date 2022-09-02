@@ -1,0 +1,147 @@
+<nav id="navbar-main" style="
+height: 100px;
+left: 2px;
+top: 1px;
+width: 10000px;
+background: #FFFFFF;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);"
+ class="navbar navbar-main navbar-expand-lg navbar-transparent
+   navbar-light headroom headroom--top headroom--pinned">
+	  <a class="navbar-brand mr-lg-5 align-items-center">
+			<li style="position: absolute;
+			
+			width: 476px;
+			height: 42px;
+			left: 14px;
+			top: 0cm;
+			
+			font-family: 'Algerian';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 42px;
+			color: #087c22;;
+			
+			border: 0px solid #1A9335;" class="nav-item">DAARA MADJMAHOUN NOREYNI</li>
+			  </a>
+			  <a style="float: right; color: #1A9335">Accueil</a>
+			       
+		
+		<img src="assets/images/logo_1.png"  class="border" style="box-sizing: border-box;
+
+		position: absolute;
+		margin-top:-1cm;
+		width: 50px;
+		object-fit: contain;
+		height: 60px;
+		left: 80px;
+		top: 70px;">
+	
+  </nav>
+  
+<div class="page-wrapper">
+	<div class="auth-bg">
+		<div class="authentication-box">
+			<!-- <div class="text-center"><img src="assets/images/side-daara.jpg" alt=""></div> -->
+			<div class="card" style="padding: 30px;">
+				<div class="card-body ">
+					<div class="text-center">
+						<!-- <h4>CONNEXION</h4> -->
+						<h5 style="position: absolute;
+						font-family: 'Roboto Slab';
+						font-style: normal;
+						font-weight: 700;
+						font-size: 40px;
+						line-height: 53px;
+						margin-top: -1cm;
+						
+						
+						color: #1C6C3C;">J'accède à mon espace </h5>
+					</div>
+					<form class="theme-form" [formGroup]="loginForm" *ngIf="!newUser">
+						<div class="form-group">
+							<label class="col-form-label pt-0" style="font-size:20px ;	
+							color: #169e4d;">Identifiant*</label>
+							<input class="form-control" formControlName="username" type="text" required="">
+							<div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required"
+								class="text text-danger mt-1">
+								username is required
+							</div>
+							<div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.login"
+								class="text text-danger mt-1">
+								Invalid username
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-form-label" style="font-size:20px ;	
+							color: #169e4d;">Mot de passe*</label>
+							<input class="form-control" type="password" formControlName="password" required="">
+							<div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required"
+								class="text text-danger mt-1">
+								Password is required
+							</div>
+						</div>
+						<div class="checkbox p-0">
+							<input id="checkbox1" type="checkbox">
+							<label for="checkbox1">Se souvenir de moi</label>
+						</div>
+						<div class="form-group form-row mt-3 mb-0">
+							<button style=" 
+							margin: 20px;
+width: 254px;
+height: 44px;
+right: 100px;
+bottom: 2px;
+background: #4D9D2A; 
+mix-blend-mode: multiply;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 15px;"
+
+								[class.loader--text]="authService.showLoader"
+								[disabled]="!loginForm.valid || authService.showLoader" (click)="login(loginForm.value)"
+								type="submit"><span style="color: white;font-size: 20px;">{{ authService.showLoader ? '' : 'Me Connecter' }}</span>
+						
+							</button>
+							<div class="text-muted text-center mb-3">
+								<small>Mot de passe Oublié?</small>
+							  </div>
+						</div>		
+											
+					</form>
+	
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<footer class="footer" style="background-color: green; padding: 16px 20px;">
+	<div class="">
+	  <div class="row row-grid align-items-center justify-content-between">
+		<div class="col-md-6">
+			<div class="copyright" style="color: white;">
+			  &copy; {{test | date: 'yyyy'}} Developpé par les membres de la DMN
+			</div>
+		  </div>
+		<div class="col-md-4 text-lg-center btn-wrapper">
+			<a target="_blank" href="https://dribbble.com/creativetim" class="btn-icon-only  btn-lg btn-round" ngbTooltip="Follow us">
+				<i class="fa fa-linkedin" style="font-size:20px ;color: white;"></i>
+			  </a>
+			  <a target="_blank" href="https://github.com/creativetimofficial" class="btn-icon-only  btn-round btn-lg" ngbTooltip="Star on Github">
+				<i class="fa fa-youtube-play" style="font-size: 20px; color: white;"></i>
+			  </a>
+		  <a target="_blank" href="https://twitter.com/creativetim" class="btn-icon-only btn-twitter btn-round btn-lg" ngbTooltip="Follow us">
+			<i class="fa fa-twitter" style="font-size: 20px; color: white;"></i>
+		  </a>
+		  <a target="_blank" href="https://www.facebook.com/creativetim"  class="btn-icon-only btn-facebook btn-round btn-lg" ngbTooltip="Like us">
+			<i class="fa fa-facebook" style="font-size: 20px; color: white;"></i>
+		  </a>
+		
+		</div>
+	  </div>
+	  <!-- <hr class="mb-0"> -->
+	 
+	</div>
+  </footer>
+  

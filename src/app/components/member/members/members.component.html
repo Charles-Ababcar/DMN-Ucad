@@ -1,0 +1,67 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+  <div class="edit-profile">
+    <div class="row">
+      <div class="card col-md-12">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-xl-6">
+                    <form class="search-form contact-search">
+                        <div class="form-group mb-0">
+                            <input type="text" class="form-control" placeholder="Search by name..."
+                                >
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-6">
+                    <div class="contact-filter">
+                        <button class="btn btn-success ml-2" [routerLink]="['/members/new-member']"><i>Ajouter</i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-12 xl-100">
+      <div class="card">
+        <div class="card-header">
+          <h5>MEMBRES ADHERENTS</h5>
+        </div>
+        <div class="card-body">
+          <div class="user-status table-responsive">
+            <table class="table table-bordernone">
+              <thead >
+                <tr>
+                  <th scope="col">Photo</th>
+                  <th scope="col">Sexe</th>
+                  <th scope="col">Adresse Perso</th>
+                  <th scope="col">Téléphone</th>
+                  <th scope="col">DDN</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let member of members">
+                <tr>
+                  <td class="bd-t-none u-s-tb">
+                    <div class="align-middle image-sm-size"><img class="img-radius align-top m-r-15 rounded-circle"
+                        src="assets/images/user/4.jpg" alt="">
+                      <div class="d-inline-block">
+                        <h6 [routerLink]="['/members/detail-member',member.id]"><a href="javascript:void(0)">{{ member.prenom}} {{ member.nom}}</a></h6>
+                      </div>
+                    </div>
+                  </td>
+                  <td>{{ member.sexe }}</td>
+                  <td>{{ member.adresse}}</td>
+                  <td>{{ member.telephone}}</td>
+                  <td>{{ member.dateNaissance}}</td>
+                  <td>{{ member.email}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->

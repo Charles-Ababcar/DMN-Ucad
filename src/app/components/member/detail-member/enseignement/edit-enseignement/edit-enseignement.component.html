@@ -1,0 +1,68 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid" [class.sidebaron]="sidebaron">
+    <div class="">
+        <div class="authentication-box contact-profile-form">
+            <div class="text-center"><img src="assets/images/side-daara.jpg" alt=""></div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center user-profile">
+                        <!-- <div class="hovercard">
+                            <div class="contact-profile">
+                                <img class="rounded-circle img-100" alt=""
+                                    [src]="url? url:'assets/images/user/user.png'">
+                            </div>
+                        </div> -->
+                    </div>
+                    <form class="theme-form" [formGroup]="enseignementForm">
+                        <div class="form-group">
+                            <label class="col-form-label">Date debut</label>
+                            <input class="form-control" type="date" formControlName="startDate" >
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Date fin</label>
+                            <input class="form-control" type="date" formControlName="endDate" >
+                        </div>
+                        <div class="checkbox p-0">
+							<input id="checkbox1" formControlName="doing" type="checkbox" [checked]="doing">
+							<label for="checkbox1">En cours</label>
+						</div>
+                        <div class="form-group">
+                            <label class="col-form-label">Type </label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="enseignementType" required="" disabled>
+                                  <option value="coran" selected="selected">Al quran</option>
+                                  <option value="xamxam">Xam Xam</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="this.type == 'xamxam'">
+                            <label for="exampleFormControlSelect8">Xam xam </label>
+                            <select class="form-control btn-pill  p-l-45 digits" formControlName="xamxam"
+                                id="exampleFormControlSelect8">
+                                <option *ngFor="let x of xamxams" value="{{ x.id }}" >{{ x.libelle }}</option>
+                            </select>
+                        </div>
+                        <div class="form-group" *ngIf="this.type == 'coran'">
+                            <label class="col-form-label">Coran </label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="coran">
+                                    <option *ngFor="let c of corans" value="{{ c.id }}" >{{ c.libelle }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-row mt-3 mb-0">
+                            <button class="btn btn-primary mr-2" [disabled]="!enseignementForm.valid"
+                                (click)="save(enseignementForm.value)" type="submit"> Enregistrer
+                            </button>
+                            <button class="btn btn-primary" type="button" data-original-title="btn btn-info-gradien"
+                                (click)="cancel()" title="">
+                                Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

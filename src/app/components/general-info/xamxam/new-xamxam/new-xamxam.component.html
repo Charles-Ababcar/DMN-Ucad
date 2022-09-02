@@ -1,0 +1,83 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid" [class.sidebaron]="sidebaron">
+    <div class="">
+        <div class="authentication-box contact-profile-form">
+            <div class="text-center"><img src="assets/images/side-daara.jpg" alt=""></div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center user-profile">
+                        <!-- <div class="hovercard">
+                            <div class="contact-profile">
+                                <img class="rounded-circle img-100" alt=""
+                                    [src]="url? url:'assets/images/user/user.png'">
+                            </div>
+                        </div> -->
+                    </div>
+                    <form class="theme-form" [formGroup]="xamxamForm">
+                        <div class="form-group">
+                            <label class="col-form-label">Libelle</label>
+                            <input class="form-control" type="text" formControlName="libelle" required="">
+                            <div *ngIf="xamxamForm.controls.libelle.touched && xamxamForm.controls.libelle.errors?.required"
+                                class="text text-danger mt-1">
+                                libelle  is required
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Niveau</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="niveau">
+                                    <option *ngFor="let nx of this.niveauXamxams" value="{{nx.id}}">{{nx.libelle}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-row mt-3 mb-0">
+                            <button class="btn btn-primary mr-2" [disabled]="!xamxamForm.valid"
+                                (click)="submit(xamxamForm.value)" type="submit"> Enregistrer
+                            </button>
+                            <button class="btn btn-primary" type="button" data-original-title="btn btn-info-gradien"
+                                (click)="cancel()" title="">
+                                Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12 xl-100">
+                    <div class="card">
+                      <div class="col-xl-1 xl-100">
+                        <p></p>
+                        <a class="btn btn-pill btn-secondary btn-air-secondary" [routerLink]="['/general-info/new-xamxam/new-niveau-xamxam']"><i class="fa fa-plus-circle" style="font-size: x-large;"></i></a>     
+                      </div>                                                                                                
+                      <div class="card-header">
+                        <h5>Niveau Xam Xam</h5> 
+                      </div>
+                      <div class="card-body">
+                        <div class="user-status table-responsive">
+                          <table class="table table-bordernone">
+                            <thead>
+                              <tr>
+                                <th scope="col">Libelle</th>
+                                <th scope="col">poids</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                              </tr>
+                            </thead>
+                            <tbody *ngFor="let nx of niveauXamxams;let index = index;" >
+                              <tr>
+                                <td>{{ nx.libelle }}</td>
+                                <td>{{ nx.poids }}</td>
+                                <td><a class="btn btn-warning btn-xs" [routerLink]="['/general-info/new-xamxam/edit-niveau-xamxam',nx.id]"><i class="fa fa-edit"></i></a></td>
+                                <td><button class="btn btn-danger btn-xs" (click)="deleteNiveauXamxam(nx.id)"><i class="fa fa-trash-o"></i></button></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

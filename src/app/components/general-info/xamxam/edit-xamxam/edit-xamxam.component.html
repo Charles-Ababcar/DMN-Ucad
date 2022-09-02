@@ -1,0 +1,48 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid" [class.sidebaron]="sidebaron">
+    <div class="">
+        <div class="authentication-box contact-profile-form">
+            <div class="text-center"><img src="assets/images/side-daara.jpg" alt=""></div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center user-profile">
+                        <!-- <div class="hovercard">
+                            <div class="contact-profile">
+                                <img class="rounded-circle img-100" alt=""
+                                    [src]="url? url:'assets/images/user/user.png'">
+                            </div>
+                        </div> -->
+                    </div>
+                    <form class="theme-form" [formGroup]="xamxamForm">
+                        <div class="form-group">
+                            <label class="col-form-label">Libelle</label>
+                            <input class="form-control" type="text" formControlName="libelle" required="">
+                            <div *ngIf="xamxamForm.controls.libelle.touched && xamxamForm.controls.libelle.errors?.required"
+                                class="text text-danger mt-1">
+                                libelle  is required
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Niveau</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="niveau">
+                                    <option *ngFor="let nx of this.niveauXamxams" value="{{nx.id}}"  [selected]="nx.libelle === this.item.niveauXamXam.libelle">{{nx.libelle}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group form-row mt-3 mb-0">
+                            <button class="btn btn-primary mr-2" [disabled]="!xamxamForm.valid"
+                                (click)="save(xamxamForm.value)" type="submit"> Enregistrer
+                            </button>
+                            <button class="btn btn-primary" type="button" data-original-title="btn btn-info-gradien"
+                                (click)="cancel()" title="">
+                                Annuler</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

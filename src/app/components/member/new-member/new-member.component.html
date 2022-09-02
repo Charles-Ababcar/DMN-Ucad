@@ -1,0 +1,214 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid" [class.sidebaron]="sidebaron">
+    <div class="">
+        <div class="authentication-box contact-profile-form">
+            <div class="text-center"><img src="assets/images/logo.png" alt=""></div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center user-profile">
+                        <div class="hovercard">
+                            <div class="contact-profile">
+                                <img class="rounded-circle img-100" alt=""
+                                    [src]="url? url:'assets/images/user/user.png'">
+                                <div class="icon-wrapper"><i class="icofont icofont-pencil-alt-5"><input class="upload"
+                                            type="file" (change)="readUrl($event)" /></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="theme-form" [formGroup]="memberForm">
+                        <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label pt-0">Nom</label>
+                            <input class="form-control" formControlName="lastName" type="text" required="">
+                            <div *ngIf="memberForm.controls.lastName.touched && memberForm.controls.lastName.errors?.required"
+                                class="text text-danger mt-1">
+                                nom est requis
+                            </div>
+                            <div *ngIf="memberForm.controls.lastName.touched && memberForm.controls.lastName.errors?.lastName"
+                                class="text text-danger mt-1">
+                                nom invalid lastName
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Prénom</label>
+                            <input class="form-control" type="text" formControlName="firstName" required="">
+                            <div *ngIf="memberForm.controls.firstName.touched && memberForm.controls.firstName.errors?.required"
+                                class="text text-danger mt-1">
+                                prénom requis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Email</label>
+                            <input class="form-control" type="email" formControlName="email" required="">
+                            <div *ngIf="memberForm.controls.email.touched && memberForm.controls.email.errors?.required"
+                                class="text text-danger mt-1">
+                                email requis
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Téléphone</label>
+                            <input class="form-control" type="text" formControlName="telephone" required="">
+                            <div *ngIf="memberForm.controls.telephone.touched && memberForm.controls.telephone.errors?.required"
+                                class="text text-danger mt-1">
+                                telephone requis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Sexe</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="sexe">
+                                  <option value="MASCULIN">Masculin</option>
+                                  <option value="FEMININ">Feminin</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">CNI</label>
+                            <input class="form-control" type="number" formControlName="cni" required="">
+                            <div *ngIf="memberForm.controls.cni.touched && memberForm.controls.cni.errors?.required"
+                                class="text text-danger mt-1">
+                                cni requis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Adresse personnelle</label>
+                            <input class="form-control" type="text" formControlName="adresse" required="">
+                            <div *ngIf="memberForm.controls.adresse.touched && memberForm.controls.adresse.errors?.required"
+                                class="text text-danger mt-1">
+                                adresse requis
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Adresse à dakar</label>
+                            <input class="form-control" type="text" formControlName="adresseDakar" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Situation matrimoniale</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="situationMatrimoniale">
+                                  <option value="CELLIBATAIRE">Celibataire</option>
+                                  <option value="MARIE">Marié(e)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Date de naissance</label>
+                            <input class="form-control" type="date" formControlName="ddn" required="">
+                            <div *ngIf="memberForm.controls.ddn.touched && memberForm.controls.ddn.errors?.required"
+                                class="text text-danger mt-1">
+                                ddn requis
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Daara d'origine</label>
+                            <input class="form-control" type="text" formControlName="daaraOrigine" >
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Tuteur/Tutrice</label>
+                            <input class="form-control" type="text" formControlName="tuteur" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Téléphone Tuteur/Tutrice</label>
+                            <input class="form-control" type="text" formControlName="telephoneTuteur" >
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label class="col-form-label">Etat de santé</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="etatSante">
+                                  <option value="STABLE">STABLE</option>
+                                  <option value="INSTABLE">INSTABLE</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 row">
+                        <div class="form-group">
+                            <label class="col-form-label">Catégorie</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select  (change)="changeCat($event)" class="form-control form-control-primary btn-square" formControlName="categorie">
+                                    <option *ngFor="let c of categories" value="{{c.id}}">{{c.libelle}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div *ngIf="this.selectedCategorie === 'Etudiant'">
+                            <div class="col-md-6 form-group">
+                                <label class="col-form-label">Adresse vacances</label>
+                                <input class="form-control" type="text" formControlName="adresseVacances" >
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="col-form-label">Boursier(e)</label>
+                                <div class="select2-drpdwn-project select-options">
+                                    <select class="form-control form-control-primary btn-square" formControlName="boursier">
+                                      <option value="true" >Oui</option>
+                                      <option value="false">Non</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 form-group">
+                                <label class="col-form-label">Département</label>
+                                <div class="select2-drpdwn-project select-options">
+                                    <select class="form-control form-control-primary btn-square" formControlName="departement">
+                                        <option *ngFor="let d of departements" value="{{d.id}}">{{d.nom}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div *ngIf="this.selectedCategorie === 'Professionnel' || this.selectedCategorie === 'Autre'">
+                            <div class="col-md-4 form-group">
+                                <label class="col-form-label">Profession</label>
+                                <div class="select2-drpdwn-project select-options">
+                                    <select class="form-control form-control-primary btn-square" formControlName="profession">
+                                        <option *ngFor="let p of professions" value="{{p.id}}">{{p.libelle}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <label class="col-form-label">Cellule</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="cellule">
+                                    <option *ngFor="let c of cellules" value="{{c.id}}">{{c.nom}}</option>
+                                </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-md-4 form-group">
+                            <label class="col-form-label">Commission</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="commission">
+                                    <option *ngFor="let c of commissions" value="{{c.id}}">{{c.nom}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group form-row mt-3 mb-0">
+                            <button class="btn btn-primary mr-2" [disabled]="!memberForm.valid"
+                                (click)="submit(memberForm.value)" type="submit"> Enregistrer
+                            </button>
+                            <button class="btn btn-primary" type="button" data-original-title="btn btn-info-gradien"
+                                (click)="cancel()" title="">
+                                Cancel</button>
+                        </div>
+                   
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

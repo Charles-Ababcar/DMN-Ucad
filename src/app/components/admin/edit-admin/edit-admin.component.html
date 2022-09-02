@@ -1,0 +1,79 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid" [class.sidebaron]="sidebaron">
+    <div class="">
+        <div class="authentication-box contact-profile-form">
+            <div class="text-center"><img src="assets/images/logo.png" alt=""></div>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <div class="text-center user-profile">
+                        <div class="hovercard">
+                            <div class="contact-profile">
+                                <img class="rounded-circle img-100" alt=""
+                                    [src]="url? url:'assets/images/user/user.png'">
+                                <div class="icon-wrapper"><i class="icofont icofont-pencil-alt-5"><input class="upload"
+                                            type="file" (change)="readUrl($event)" /></i></div>
+                            </div>
+                        </div>
+                    </div>
+                    <form class="theme-form" [formGroup]="adminForm">
+                        <div class="form-group">
+                            <label class="col-form-label pt-0">Nom</label>
+                            <input class="form-control" formControlName="lastName" type="text" required="">
+                            <div *ngIf="adminForm.controls.lastName.touched && adminForm.controls.lastName.errors?.required"
+                                class="text text-danger mt-1">
+                                nom est requis
+                            </div>
+                            <div *ngIf="adminForm.controls.lastName.touched && adminForm.controls.lastName.errors?.lastName"
+                                class="text text-danger mt-1">
+                                nom invalid lastName
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Prénom</label>
+                            <input class="form-control" type="text" formControlName="firstName" required="">
+                            <div *ngIf="adminForm.controls.firstName.touched && adminForm.controls.firstName.errors?.required"
+                                class="text text-danger mt-1">
+                                prénom requis
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Email</label>
+                            <input class="form-control" type="email" formControlName="email" required="">
+                            <div *ngIf="adminForm.controls.email.touched && adminForm.controls.email.errors?.required"
+                                class="text text-danger mt-1">
+                                email requis
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Statut</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="status">
+                                  <option value="true" [selected]="this.item.activated === true">Activé</option>
+                                  <option value="false" [selected]="this.item.activated === false">Désactivé</option>
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Rôle</label>
+                            <div class="select2-drpdwn-project select-options">
+                                <select class="form-control form-control-primary btn-square" formControlName="role">
+                                  <option *ngFor="let role of roles" value="{{role}}" [selected]="role === this.item.authorities[0]" >{{role}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group form-row mt-3 mb-0">
+                            <button class="btn btn-primary mr-2" [disabled]="!adminForm.valid"
+                                (click)="save(adminForm.value)" type="submit"> Submit
+                            </button>
+                            <button class="btn btn-primary" type="button" data-original-title="btn btn-info-gradien"
+                                (click)="cancel()" title="">
+                                Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->

@@ -1,0 +1,275 @@
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+  <div class="edit-profile">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <div class="row mb-2">
+                <div class="col-auto"><img class="img-70 rounded-circle" alt="" src="assets/images/user/7.jpg"></div>
+                <div class="col">
+                  <h3 class="mb-1">{{item.prenom}} {{item.nom}}</h3>
+                  <!-- <p class="mb-4" *ngIf="item.departement.nom != null">Etudiant</p>
+                  <p class="mb-4" *ngIf="item.profession != null">Professionnel</p> -->
+                </div>
+              </div>
+              <div class="form-group">
+                <h6 class="form-h6">Téléphone</h6>
+                  {{ item.telephone}}
+              </div>
+              <div class="form-group">  
+                <h6 class="form-h6">Email</h6>
+                {{ item.email}}
+              </div>
+              <div class="form-group">
+                <h6 class="form-h6">Sexe</h6>
+                {{ item.sexe}}
+              </div>
+              <div class="form-group">
+                <h6 class="form-h6">Adresse</h6>
+                {{ item.adresse}}
+              </div>
+              <div *ngFor="let e of entite">
+                <div class="form-group" *ngIf="e.entite.typeEntite == 'CELLULE'">
+                  <h6 class="form-h6" >CELLULE</h6>
+                  {{ e.entite.nom }}
+                </div>
+                <div class="form-group" *ngIf="e.entite.typeEntite == 'COMMISSION'">
+                  <h6 class="form-h6" >COMMISSION</h6>
+                  {{ e.entite.nom}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title mb-0">Informations supplementaires</h4>
+            <div class="card-options"><a class="card-options-collapse" [routerLink]="[]" data-toggle="card-collapse"><i
+                  class="fe fe-chevron-up"></i></a><a class="card-options-remove" [routerLink]="[]"
+                data-toggle="card-remove"><i class="fe fe-x"></i></a></div>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <h6 class="form-h6">Carte nationale d'identité</h6>
+                  {{ item.cni}}
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <h6 class="form-h6">Adresse Dakar</h6>
+                  {{ item.adressDakar}}                
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-4">
+                <div class="form-group">
+                  <h6 class="form-h6">Adresse Vacances</h6>
+                  {{ item.adresseVacance}}                
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5">
+                <div class="form-group">
+                  <h6 class="form-h6">Situation matrimoniale</h6>
+                  {{ item.situationMatrimoniale}}   
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <h6 class="form-h6">Date de naissance</h6>
+                  {{ item.dateNaissance}}  
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <h6 class="form-h6">Boursier(e)</h6>
+                  {{ item.boursier}}  
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5">
+                <div class="form-group">
+                  <h6 class="form-h6">Daara d'origine</h6>
+                  {{ item.daaraOrigine}}  
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="form-group">
+                  <h6 class="form-h6">Tuteur/Tutrice</h6>
+                  {{ item.titeur}}  
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <h6 class="form-h6">Téléphone Tuteur/Tutrice</h6>
+                  {{ item.telephoneTiteur}}  
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="form-group mb-0">
+                  <h6 class="form-h6">Etat de santé</h6>
+                  {{ item.etatSante}}  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card col-md-5">
+          <div *ngIf="item.profession != null">
+            <div class="col-md-5">
+              <div class="form-group mb-0">
+                <h6 class="form-h6">Profession</h6>
+                {{ item.profession}}  
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive" >
+            <table class="table card-table table-vcenter text-nowrap">
+              <thead>
+                <tr>
+                  <th>Departement</th>
+                  <th>Faculte</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>	biologies</td>
+                  <td>sciences</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="card">
+            <div class="col-xl-1 xl-100">
+              <p></p>
+              <a class="btn btn-pill btn-secondary btn-air-secondary btn-xs" [routerLink]="['/members/detail-member/new-enseignement',item.id]"><i class="fa fa-plus-circle"></i></a>     
+            </div> 
+            <div class="card-header">
+              <h4 class="card-title mb-0">Sciences religieuses</h4>
+              <div class="card-options"><a class="card-options-collapse" [routerLink]="[]" data-toggle="card-collapse"><i
+                    class="fe fe-chevron-up"></i></a><a class="card-options-remove" [routerLink]="[]"
+                  data-toggle="card-remove"><i class="fe fe-x"></i></a>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Livre</th>
+                    <th>Niveau xamxam</th>
+                    <th>Etat</th>
+                    <th>Date debut </th>
+                    <th>Date fin</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let e of enseignements">
+                  <tr *ngIf="e.xamXam !=null">
+                    <td><span class="status-icon bg-success"></span> {{ e.xamXam.libelle}}</td>
+                    <td>niveauXamXam</td>
+                    <td>
+                      <span class="badge badge-warning" *ngIf="e.encours === true">En cours</span>
+                      <span class="badge badge-success" *ngIf="e.encours != true"><i class="icofont icofont-ui-check"></i></span>
+                    </td>
+                    <td>{{e.dateDebut}}</td>
+                    <td>{{e.dateFin}}</td>
+                    <td><a class="btn btn-warning btn-xs" [routerLink]="['/members/detail-member/edit-enseignement',e.id]"><i class="fa fa-edit"></i></a></td>
+                    <td><button class="btn btn-danger btn-xs" (click)="deleteEnseignement(e.id)" ><i class="fa fa-trash-o"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr>
+              <table class="table card-table table-vcenter text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Niveau coranique</th>
+                    <th>Etat</th>
+                    <th>Date debut </th>
+                    <th>Date fin</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let e of enseignements">
+                  <tr *ngIf="e.coran !=null">
+                    <td>{{ e.coran.libelle}}</td>
+                    <td>
+                      <span class="badge badge-warning" *ngIf="e.encours === true">En cours</span>
+                      <span class="badge badge-success" *ngIf="e.encours != true"><i class="icofont icofont-ui-check"></i></span>
+                    </td>
+                    <td>{{e.dateDebut}}</td>
+                    <td>{{e.dateFin}}</td>
+                    <td><a class="btn btn-warning btn-xs" [routerLink]="['/members/detail-member/edit-enseignement',e.id]"><i class="fa fa-edit"></i></a></td>
+                    <td><button class="btn btn-danger btn-xs" (click)="deleteEnseignement(e.id)"><i class="fa fa-trash-o"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card">
+            <div class="col-xl-1 xl-100">
+              <p></p>
+              <a class="btn btn-pill btn-secondary btn-air-secondary btn-xs" [routerLink]="['/general-info/new-commission']"><i class="fa fa-plus-circle"></i></a>     
+            </div> 
+            <div class="card-header">
+              <h4 class="card-title mb-0">Kourel</h4>
+            </div>
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap">
+                <thead>
+                  <tr>
+                    <th>Kourel</th>
+                    <th>Actif</th>
+                    <th>Date début</th>
+                    <th>Date Fin</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody *ngFor="let k of kourels">
+                  <tr>
+                    <td>{{ k.kourel.nom}}</td>
+                    <td>
+                      <span class="badge badge-warning" *ngIf="k.encours === true">En cours</span>
+                      <span class="badge badge-success" *ngIf="k.encours != true"><i class="icofont icofont-ui-check"></i></span>
+                    </td>
+                    <td>{{k.dateDebut}}</td>
+                    <td>{{k.dateFin}}</td>
+                    <td><a class="btn btn-warning btn-xs" ><i class="fa fa-edit"></i></a></td>
+                    <td><button class="btn btn-danger btn-xs" ><i class="fa fa-trash-o"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="card col-md-12">
+      <div class="card-body">
+          <div class="row">
+              <div class="col-xl-4">
+              </div>
+              <div class="col-xl-4">
+                <div class="contact-filter">
+                  <button class="btn btn-warning ml-2" [routerLink]="['/members/new-member']"><i>Modifier</i></button>
+                  <button class="btn btn-danger ml-2" (click)="deleteMember(item.id)" ><i>Supprimer</i></button>
+                </div>
+           </div>
+           <div class="col-xl-4">
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->
